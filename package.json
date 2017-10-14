@@ -6,7 +6,8 @@
   "scripts": {
     "edit": "swagger_swagger_fileName=api/swagger/swagger.yaml swagger_swagger_editorDir=./node_modules/swagger-editor ./node_modules/.bin/swagger project edit -s --host localhost -p 3010",
     "dev": "./node_modules/.bin/nodemon index.js | ./node_modules/bunyan/bin/bunyan -o json",
-    "test": "./node_modules/.bin/mocha ./api/test/index.js",    
+    "test": "./node_modules/.bin/mocha ./api/test/index.js",   
+    "start": "forever -w index.js",
     "eslint": "node ./lib/eslint.js"
   },
   "pre-commit": [
