@@ -24,6 +24,7 @@
     "http-errors": "^1.6.2",
     "ip": "^1.1.5",
     "lodash": "^4.17.4",
+    "yamljs": "^0.3.0",
     "swagger-express-mw": "^0.7.0",
     "swagger-ui-express": "2.0.1"
   },
