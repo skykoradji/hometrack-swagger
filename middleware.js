@@ -40,7 +40,7 @@ function errorHandler(err, req, res, server, next) {
   }
   //this is from swagger validation errors
   if(err.message === 'Validation errors') {
-    let messages = _.pluck(err.errors, 'message');
+    let messages = _.map(err.errors, 'message');
     return res.status(400).send({ message: messages && _.isArray(messages) ? messages[0] : err.errors });
   }
   //caught server exceptions

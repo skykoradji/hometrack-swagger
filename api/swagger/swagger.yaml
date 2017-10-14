@@ -47,6 +47,9 @@ paths:
       description: Returns the server ip address
       # used as the method name of the controller
       operationId: track
+      consumes:
+        - application/json
+        - application/x-www-form-urlencoded
       #no security
       security: []
       parameters:
