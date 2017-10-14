@@ -1,0 +1,128 @@
+swagger: "2.0"
+info:
+  description: |+
+    Test
+    
+  version: "0.0.1"
+  title: HomeTrack
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+externalDocs: 
+  description: Find out more about Swagger
+  url: http://swagger.io
+
+# during dev, should point to your local machine
+host: dev-hometrack.herokuapp.com:3001
+# basePath prefixes all resource paths 
+basePath: /
+# 
+securityDefinitions:
+  basicAuth:
+    type: basic
+    description: |
+      Request may include basic authentication information but it is not required.
+
+security:
+    - basicAuth: []
+
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+  - application/x-www-form-urlencoded
+  - application/octet-stream
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+  - application/x-www-form-urlencoded
+paths:  
+  /:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: home
+    post:
+      description: Returns the server ip address
+      # used as the method name of the controller
+      operationId: track
+      #no security
+      security: []
+      parameters:
+        - in: formData
+          name: payload
+          description: The payload to perform
+          required: true
+          type: string
+        - in: formData
+          name: type
+          description: type to pass in
+          required: false
+          type: string
+          default: 'htv'
+        - in: formData
+          name: workflow
+          description: workflow to pass in
+          required: false
+          type: string
+          default: 'completed'          
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/Result"
+        # responses may fall through to errors
+        "400":
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+
+ 
+  /swagger:
+    x-swagger-pipe: swagger_raw
+    
+    
+    
+# complex objects have schema definitions
+definitions:
+
+  ErrorResponse:
+    required:
+      - error
+    properties:
+      error:
+        type: string
+
+  Result:
+    type: "object"
+    properties:
+      response:
+        type: array
+        items:
+           $ref: "#/definitions/Item"
+           
+  Item:
+    required:
+      - concataddress 
+      - type
+      - workflow
+    properties:
+      concataddress:
+        type: string
+      type:
+        type: string
+      workflow:
+        type: string
+    
+         
+          
+
+              
+        
+ 
+
+        
+        

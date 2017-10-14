@@ -1,0 +1,5 @@
+{
+  "name": "hometrack",
+  "env": "development",
+  "port": 3001
+}

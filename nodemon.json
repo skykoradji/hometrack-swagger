@@ -1,0 +1,8 @@
+{
+  "verbose": true,
+  "ignore": ["api/test/*"],
+  "execMap": {
+    "rb": "ruby",
+    "pde": "processing --sketch={{pwd}} --run"
+  }
+}

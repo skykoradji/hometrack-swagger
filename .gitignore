@@ -1,0 +1,10 @@
+*.iml
+npm-debug
+node_modules
+/.cache/
+/.git/
+*.log
+*.bash_history
+.DS_Store
+.idea/
+package-lock.json
