@@ -6,8 +6,8 @@
   "scripts": {
     "edit": "swagger_swagger_fileName=api/swagger/swagger.yaml swagger_swagger_editorDir=./node_modules/swagger-editor ./node_modules/.bin/swagger project edit -s --host localhost -p 3010",
     "dev": "./node_modules/.bin/nodemon index.js | ./node_modules/bunyan/bin/bunyan -o json",
-    "test": "./node_modules/.bin/mocha ./api/test/index.js",   
-    "start": "forever -w index.js",
+    "test": "./node_modules/.bin/mocha ./api/test/index.js",
+    "start": "forever start index.js",
     "eslint": "node ./lib/eslint.js"
   },
   "pre-commit": [
@@ -21,6 +21,7 @@
     "bunyan": "^1.8.10",
     "config": "^1.26.0",
     "express": "^4.15.3",
+    "forever": "^0.15.3",
     "http-errors": "^1.6.2",
     "ip": "^1.1.5",
     "lodash": "^4.17.4",
@@ -39,10 +40,10 @@
     "mocha": "^3.4.2",
     "mockery": "^2.1.0",
     "nodemon": "^1.11.0",
+    "pre-commit": "^1.2.2",
     "should": "^11.2.1",
     "supertest": "^3.0.0",
     "swagger": "^0.7.5",
-    "pre-commit": "^1.2.2",
     "swagger-node-codegen": "^0.1.0"
   }
 }
