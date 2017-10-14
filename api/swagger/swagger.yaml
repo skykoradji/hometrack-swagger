@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   description: |+
-    
+    Choose HTTPS method for api test, otherwise it will be blocked by heroku
   version: "0.0.1"
   title: HomeTrack
   license:
@@ -26,8 +26,8 @@ security:
 
 schemes:
   # tip: remove http to make production-grade
-  - http
   - https
+  - http
 # format of bodies a client can send (Content-Type)
 consumes:
   - application/json
