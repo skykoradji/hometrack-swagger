@@ -1,4 +1,0 @@
-**/test/**
-**/node_modules/**
-# Restart only when js files are changed.
-!*.js
